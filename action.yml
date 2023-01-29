@@ -4,8 +4,12 @@ author: 'Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>'
 branding:
   icon: 'terminal'
   color: 'blue'
+inputs:
+  command:
+    description: 'Command to run'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    dest: ${{ inputs.redirect-to }}
+  args:
+    - ${{ inputs.command }}
